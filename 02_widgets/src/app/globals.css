@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes backgroundMotion {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-backgroundMotion {
+  background-size: 400% 400%;
+  animation: backgroundMotion 30s ease infinite;
+}
+
+.bg-sunny {
+  background-image: url("/sunny.gif");
+}
+
+.bg-cloudy {
+  background-image: url("/cloudy.gif");
+}
+
+.bg-rainy {
+  background-image: url("/rainy.gif");
+}
+
+.bg-snowy {
+  background-image: url("/snowy.gif");
+}
+.bg-default {
+  background-image: url("/default.jpg");
+}
