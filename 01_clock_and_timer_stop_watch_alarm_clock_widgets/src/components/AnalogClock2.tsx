@@ -65,11 +65,8 @@ const AnalogClock: React.FC = () => {
           {/* Center Circle */}
           <div className="absolute w-4 h-4 bg-white rounded-full border border-black left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2" />
         </div>
-
-        <div className="absolute top-0 -right-20">
-          <GoBack />
-        </div>
       </div>
+      <footer className="py-2 text-white text-lg">Developed by Umair</footer>
     </div>
   );
 };

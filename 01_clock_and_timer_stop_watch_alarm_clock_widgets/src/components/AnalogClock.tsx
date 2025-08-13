@@ -2,18 +2,31 @@
 
 import React, { useEffect, useState } from "react";
 import GoBack from "@/components/GoBack";
+import TimezoneSelect from "./TimezoneSelect";
+import { Globe } from "lucide-react";
 
 const clockFaceImage =
   "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=512&q=80";
 
 export default function BeautifulAnalogClock() {
   const [time, setTime] = useState(new Date());
-  console.log(time);
+  // console.log(time);
+
+  const [selectedTimezone, setSelectedTimezone] = useState("UTC");
 
   useEffect(() => {
-    const timerId = setInterval(() => setTime(new Date()), 1000 / 60);
+    const updateTime = () => {
+      const now = new Date();
+      const timeInTimezone = new Date(
+        now.toLocaleString("en-US", { timeZone: selectedTimezone })
+      );
+      setTime(timeInTimezone);
+    };
+
+    updateTime();
+    const timerId = setInterval(updateTime, 1000 / 60);
     return () => clearInterval(timerId);
-  }, []);
+  }, [selectedTimezone]); // Re-run when timezone changes
 
   const seconds = time.getSeconds() + time.getMilliseconds() / 1000;
   const minutes = time.getMinutes() + seconds / 60;
@@ -24,17 +37,26 @@ export default function BeautifulAnalogClock() {
   const hoursDeg = hours * 30;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-indigo-900 via-black to-gray-900 p-4">
-      <h1 className="text-4xl font-bold text-white text-nowrap mb-8 tracking-wide drop-shadow-lg">
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-indigo-900 via-black to-gray-900 px-4">
+      <div className="absolute top-36 md:top-6 left-6">
+        <GoBack />
+      </div>
+
+      <h1 className="text-4xl font-bold text-white text-nowrap mb-4 tracking-wide drop-shadow-lg">
         Elegant Analog Wall Clock
       </h1>
-      <div className="flex">
+      <div className="flex flex-col gap-2 items-center justify-center">
         <div>
-          <GoBack />
+          {/* use select box here for selecting timezone */}
+          <TimezoneSelect
+            value={selectedTimezone}
+            onChange={setSelectedTimezone}
+            className="w-full overflow-hidden"
+          />
         </div>
         <div
           className="relative rounded-full shadow-2xl border-2 border-gray-800 overflow-hidden
-         w-[500px] h-[500px]"
+         w-[500px] h-[500px] scale-90"
           style={{
             backgroundImage: `url(${clockFaceImage})`,
             backgroundSize: "cover",
@@ -44,7 +66,7 @@ export default function BeautifulAnalogClock() {
           }}
         >
           {/* Center Dot */}
-          <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-black rounded-full -translate-x-1/2 -translate-y-1/2 z-30 shadow-lg" />
+          <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-black rounded-full -translate-x-1/2 -translate-y-1/2 z-40 shadow-lg" />
 
           {/* Hour hand */}
           <div
@@ -137,14 +159,12 @@ export default function BeautifulAnalogClock() {
             );
           })}
         </div>
-        <div>
-          <GoBack />
-        </div>
       </div>
-      <footer className="text-white mt-8 text-center max-w-md opacity-70">
-        This is a beautifully designed analog wall clock with a stylish
-        background, glowing hands, and responsive size that adapts on mobile,
-        tablet, and desktop.
+      <footer className="w-full text-white text-center opacity-70">
+        <div className="flex items-center justify-center gap-4">
+          <Globe className="text-yellow-500" />
+          Developed by Umair
+        </div>
       </footer>
     </div>
   );
