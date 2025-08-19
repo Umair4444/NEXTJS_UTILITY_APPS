@@ -42,6 +42,8 @@ export default function Quiz() {
           onClick={() => {
             setCurrent(0);
             setScore(0);
+            setSelected(null);
+            setShowAnswer(false);
           }}
           className="mt-6 px-10 py-8 bg-yellow-400 text-black rounded-full text-xl font-bold hover:bg-yellow-300 transition"
         >

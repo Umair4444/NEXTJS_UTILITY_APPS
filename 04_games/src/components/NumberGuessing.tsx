@@ -143,7 +143,6 @@ const NumberGuessing = (): React.JSX.Element => {
             {/* Show attempt count and target number for testing */}
             <div className="text-center text-black">
               <p>Total Attempts: {attempts}</p>
-              <p>Correct Number: {targetNumber}</p>
             </div>
           </div>
         )}

@@ -41,11 +41,6 @@ export default function Home() {
           </Link>
         ))}
       </div>
-
-      {/* Footer/Attribution */}
-      <div className="mt-12 text-sm text-white/70 text-center">
-        Powered by Next.js & ShadCN UI
-      </div>
     </main>
   );
 }

@@ -34,11 +34,6 @@ export default function Home() {
           </Link>
         ))}
       </nav>
-
-      {/* Footer Text */}
-      <p className="self-end text-gray-300 mt-12 max-w-fit text-center opacity-75">
-        Developed By Umair
-      </p>
     </main>
   );
 }

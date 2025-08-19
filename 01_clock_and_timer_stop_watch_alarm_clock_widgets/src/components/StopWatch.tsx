@@ -17,6 +17,7 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
+import GoBack from "./GoBack";
 
 type LapTime = number;
 
@@ -64,6 +65,9 @@ export default function StopWatch() {
           "url('https://images.unsplash.com/photo-1714176961136-4edcb1e8b154?w=600&auto=format&fit=crop&q=60')",
       }}
     >
+      <div className="absolute top-36 md:top-6 left-6">
+        <GoBack className="py-2 px-4 bg-black hover:bg-black/80" />
+      </div>
       <Card className="w-full max-w-lg bg-black/60 text-white border border-white/20 backdrop-blur-lg shadow-2xl">
         <CardHeader className="flex flex-col items-center text-center">
           <CardTitle className="text-5xl font-extrabold text-neon-green">
@@ -119,8 +123,12 @@ export default function StopWatch() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="text-left text-white">Lap</TableHead>
-                      <TableHead className="text-right text-white">Time</TableHead>
+                      <TableHead className="text-left text-white">
+                        Lap
+                      </TableHead>
+                      <TableHead className="text-right text-white">
+                        Time
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
