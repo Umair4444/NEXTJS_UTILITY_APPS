@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { BackButton } from "./BackButton";
 
 const balloons = ["🎈", "🎉", "🥳", "🎂", "🎊", "💖", "🍰"];
 
@@ -20,7 +21,11 @@ const BirthdayCelebration = () => {
   }, [showWish]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-pink-500 text-white px-4">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-pink-500 text-white px-4">
+      {/* Back Button fixed at top-left */}
+      <div className="absolute top-4 left-4 z-10">
+        <BackButton classname="bg-white/80 text-black shadow-md hover:bg-white" />
+      </div>
       {!showWish ? (
         <Button
           onClick={() => setShowWish(true)}

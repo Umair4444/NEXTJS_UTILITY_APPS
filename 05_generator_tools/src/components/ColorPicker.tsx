@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Copy, Filter } from "lucide-react";
+import { BackButton } from "./BackButton";
 
 export default function ColorPicker() {
   const [color, setColor] = useState("#3498db");
@@ -41,6 +42,9 @@ export default function ColorPicker() {
       }}
     >
       <Card className="w-full max-w-md p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg">
+        <div className="flex items-center gap-10">
+          <BackButton classname="text-black" />
+        </div>
         <h1 className="text-2xl font-bold text-center mb-4">🎨 Color Picker</h1>
         <CardContent className="flex flex-col items-center gap-4">
           {/* Native color input */}

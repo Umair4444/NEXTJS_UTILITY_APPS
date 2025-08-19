@@ -26,6 +26,7 @@ import dynamic from "next/dynamic";
 // Icons
 import { FaBirthdayCake, FaGift } from "react-icons/fa";
 import { GiBalloons } from "react-icons/gi";
+import { BackButton } from "./BackButton";
 
 // Confetti import (client-only)
 const DynamicConfetti = dynamic(() => import("react-confetti"), { ssr: false });
@@ -98,14 +99,17 @@ export default function BirthdayWish() {
     <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
       {/* Background image using Next.js Image */}
       <Image
-        src={
-          "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmlydGhkYXl8ZW58MHx8MHx8fDA%3D"
-        }
+        src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmlydGhkYXl8ZW58MHx8MHx8fDA%3D"
         alt="Birthday background"
         fill
         className="object-cover z-0 opacity-90"
         priority
       />
+
+      {/* Back Button fixed at top-left */}
+      <div className="absolute top-4 left-4 z-10">
+        <BackButton classname="bg-white/80 text-black shadow-md hover:bg-white" />
+      </div>
 
       {/* Foreground animated content */}
       <motion.div
