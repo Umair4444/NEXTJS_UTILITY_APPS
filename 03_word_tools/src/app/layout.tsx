@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Notes App",
-  description: "A simple notes app using Next.js 14 & Aceternity UI",
+  title: "Multi Word-Tool Dashboard – Simple Apps in One Place",
+  description:
+    "A clean and minimal app that lets you quickly access useful tools like a Todo App for task management and a Word Counter App for writing productivity. Built with Next.js, Tailwind CSS, and a beautiful glassmorphism effect over a scenic background.",
 };
 
 export default function RootLayout({
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

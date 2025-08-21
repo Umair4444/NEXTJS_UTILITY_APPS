@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Trash2 } from "lucide-react";
 
-export default function NotesApp() {
+export default function Todo() {
   const [notes, setNotes] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
