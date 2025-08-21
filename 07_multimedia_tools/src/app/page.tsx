@@ -17,10 +17,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative z-10 text-center mb-12">
         <h1 className="text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
-          Explore My Modern Tools
+          Explore My Modern Multimedia Tools
         </h1>
         <p className="text-lg text-white/90 max-w-xl mx-auto drop-shadow-md">
-          Interactive components built with Next.js 14, ShadCN UI, and GraphQL.
+          Interactive components built with Next.js 14, ShadCN UI.
         </p>
       </section>
 
