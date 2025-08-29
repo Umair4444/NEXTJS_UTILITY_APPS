@@ -11,7 +11,6 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
-  "from-email": z.email("Email is required"),
   "to-email": z.email("Email is required"),
   message: z.string().min(5, "Message is required"),
 });
@@ -32,6 +31,7 @@ export default function Home() {
   });
 
   const onSubmit = async (data: FormData) => {
+    console.log("click");
     setLoading(true);
     const res = await fetch("/api/send", {
       method: "POST",
@@ -70,18 +70,7 @@ export default function Home() {
 
             <Input
               type="email"
-              placeholder="Your Email"
-              {...register("from-email")}
-            />
-            {errors["from-email"] && (
-              <p className="text-red-500 text-sm">
-                {errors["from-email"]?.message}
-              </p>
-            )}
-
-            <Input
-              type="email"
-              placeholder="Sent to Email"
+              placeholder="Sent to"
               {...register("to-email")}
             />
             {errors["to-email"] && (

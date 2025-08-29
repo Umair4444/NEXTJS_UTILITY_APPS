@@ -6,7 +6,7 @@ export async function POST(req: Request) {
     // const { name, email, message } = await req.json();
     const {
       name,
-      ["from-email"]: fromEmail,
+      // ["from-email"]: fromEmail, // no use because smtp use email with which smtp is registered
       ["to-email"]: toEmail,
       message,
     } = await req.json();
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       // from: email,
       // to: process.env.RECEIVER_EMAIL, // where emails will be sent
-      from: fromEmail,
+      // from: fromEmail, // no use because smtp use email with which smtp is registered
       to: toEmail, // where emails will be sent
       subject: `New message from ${name}`,
       text: message,
